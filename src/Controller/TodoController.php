@@ -28,7 +28,7 @@ class TodoController extends AbstractController
         return $this->render('todo/index.html.twig');
     }
     #[Route(
-        '/add',
+        '/add/{cle?Ibrahim}/{element?the parent of Ayyoub, Amin, Rajae et Ouafae}',
         name: 'app_todo.add',
         defaults: ['cle' => 'Ibrahim', 'element' => 'the parent of Ayyoub, Amin, Rajae et Ouafae']
     )]

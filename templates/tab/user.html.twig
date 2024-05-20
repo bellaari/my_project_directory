@@ -1,0 +1,40 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}
+    users
+{% endblock %}
+
+{% block pageTitle %}
+    users
+{% endblock %}
+
+{% block body %}
+    {{ include('fragments/date-jour.html.twig') }}
+
+    <div class="alert alert-warning" role="alert">
+        <a href="{{ path('app_tab',{nb:8}) }}">Status table</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>Age</td>
+                <td>Message</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for element in tab %}
+                <tr class="table-{% if loop.index is even %}danger{% else %}success{% endif %}">
+
+                    <td>{{ element.lastname }}</td>
+                    <td>{{ element.firstname }}</td>
+                    <td>{{ element.age }}</td>
+                    <td>{{ render(controller('App\\Controller\\FirstController::sayHello',{name:element.firstname, lastname:element.lastname})) }}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

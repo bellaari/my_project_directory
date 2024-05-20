@@ -18,12 +18,24 @@ class FirstController extends AbstractController
         ]);
     }
 
-    #[Route('/sayHello/{name}/{lastname}', name: 'say.hello')]
+//    #[Route('/sayHello/{name}/{lastname}', name: 'say.hello')]
     public function sayHello(Request $request,$name,$lastname): Response
     {
         return $this->render('first/hello.html.twig',[
             'prenom' => $name,
             'nom' => $lastname
+//            'path' => 'rfs.jpg'
         ]);
+    }
+
+    #[Route(
+        '/multi/{entier1<\d+>}/{entier2<\d+>}', 
+        name: 'multi',
+        //requirements : ['entier1' => '\d+' , 'entier2' => '\d+']
+        )]
+    public function multiplication($entier1,$entier2): Response
+    {
+        $resultat = $entier1 * $entier2;
+        return new Response($resultat);
     }
 }
