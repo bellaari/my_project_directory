@@ -27,6 +27,7 @@ class TodoController extends AbstractController
         $this->addFlash('info',"la liste des todos viens d'etre initialise");
         return $this->render('todo/index.html.twig');
     }
+    
     #[Route(
         '/add/{cle?Ibrahim}/{element?the parent of Ayyoub, Amin, Rajae et Ouafae}',
         name: 'app_todo.add',
@@ -58,6 +59,7 @@ class TodoController extends AbstractController
         }
         return $this->redirectToRoute('app_todo');
     }
+
     #[Route('/delete/{cle}', name: 'app_todo.delete')]
     public function supTodo(Request $request, $cle): RedirectResponse
     {
@@ -84,6 +86,7 @@ class TodoController extends AbstractController
         }
         return $this->redirectToRoute('app_todo');
     }
+
     #[Route('/update/{cle}/{element}', name: 'app_todo.update')]
     public function updateTodo(Request $request, $cle, $element): RedirectResponse
     {
@@ -110,6 +113,7 @@ class TodoController extends AbstractController
         }
         return $this->redirectToRoute('app_todo');
     }
+
     #[Route('/reset', name: 'app_todo.reset')]
     public function resetTodo(Request $request): RedirectResponse
     {

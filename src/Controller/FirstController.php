@@ -18,13 +18,13 @@ class FirstController extends AbstractController
         ]);
     }
 
-//    #[Route('/sayHello/{name}/{lastname}', name: 'say.hello')]
+    #[Route('/sayHello/{name?Ibrahim}/{lastname?BELLAARI}', name: 'say.hello')]
     public function sayHello(Request $request,$name,$lastname): Response
     {
         return $this->render('first/hello.html.twig',[
             'prenom' => $name,
-            'nom' => $lastname
-//            'path' => 'rfs.jpg'
+            'nom' => $lastname,
+            'path' => ''
         ]);
     }
 

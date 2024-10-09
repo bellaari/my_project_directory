@@ -20,5 +20,5 @@ class MyCustomTwigExtensions extends AbstractExtension
         }
         return $path;
     }
-
+    
 }
